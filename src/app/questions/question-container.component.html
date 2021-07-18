@@ -1,0 +1,28 @@
+<div class="question-wrapper">
+
+  <div class="question-carousel-container">
+    <div class="timer" >Time:
+      <app-count-down (onTimeOver)="onTimeOver($event)" #countDown></app-count-down>
+    </div>
+    <p-carousel (onPage)='pageChane($event)' [value]="questions">
+      <ng-template let-question pTemplate="item">
+        <div style="display: flex;flex-direction: column;">
+          <div class="question-text-container">
+            <h5>Q.{{index + 1}} {{question.question}}</h5>
+
+          </div>
+
+          <div class="answers-container">
+            <app-answer *ngFor='let answer of question.answers' [answer]='answer' (click)="selectAnswer(answer)"
+                        [ngClass]="{'active': answer?.isSelected,'correct':answer?.isCorrect&& answer?.isCorrectSubmitted }"></app-answer>
+          </div>
+        </div>
+        <div><b style="color: red;">Strikes:{{question.strikes}}</b></div>
+      </ng-template>
+    </p-carousel>
+  </div>
+  <button class="pill" [disabled]="!selectedAnswer" (click)="okClick()">OK</button>
+
+
+</div>
+

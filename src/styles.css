@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+body,
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.answers-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.answers-container > app-answer {
+  flex: 45%;
+  box-shadow: 0 0 0 1px black;
+  text-align: center;
+  padding: 35px;
+  margin: 8px;
+  border-radius: 10px;
+
+}
+
+button.pill {
+  background-color: gray;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  display: inline-block;
+  margin: 4px 2px;
+  border-radius: 16px;
+  min-width: 150px;
+  color: #fff;
+}
+
+button.pill:hover:not(:disabled) {
+  background-color: #ddd;
+}
